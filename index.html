@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+        <title>Lab 11</title>
+</head>
+    <h1 id="heading1">Click button to test onLoad </h1>
+    <img src = 'grumpy_cat.png' id='grumpy_cat'  width="200" height="200" ></img>
+    <button id='button' onclick="loadImg()">Click me!</button>
+
+<body>
+
+    <script>
+        var img = document.querySelector("#grumpy_cat");
+        var btn = document.querySelector("#button");
+        var words = document.querySelector('#heading1');
+        var count = 0;
+
+        img.onload = function loaded(){
+            count++;
+            if(count <= 1){
+                document.body.style.backgroundColor = "blue";
+            }
+            else{
+                words.innerHTML = 'second onLoad fired';
+                document.body.style.backgroundColor = "red";
+            }
+        }
+
+        img.src = 'grumpy_cat.png';
+
+        btn.onclick = function loadImg(){
+            img.src="grumpy_cat.png";
+            console.log('img set to grumpy cat ' + count);
+        }
+
+    </script>
+
+</body>
+</html>
